@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Jankenpon</string>
+    <string name="escolha_do_app">Escolha do App</string>
+    <string name="escolha_do_user">Escolha uma opção abaixo</string>
 </resources>
