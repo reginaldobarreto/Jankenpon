@@ -2,4 +2,7 @@
     <string name="app_name">Jankenpon</string>
     <string name="escolha_do_app">Escolha do App</string>
     <string name="escolha_do_user">Escolha uma opção abaixo</string>
+    <string name="msg_empate">Empate !</string>
+    <string name="msg_vitoria">Você venceu !</string>
+    <string name="msg_derrota">Você perdeu !</string>
 </resources>
