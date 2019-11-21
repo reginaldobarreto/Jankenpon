@@ -5,4 +5,6 @@
     <string name="msg_empate">Empate !</string>
     <string name="msg_vitoria">Você venceu !</string>
     <string name="msg_derrota">Você perdeu !</string>
+    <string name="msg_lose">Você perdeu !</string>
+    <string name="msg_win">Você venceu !</string>
 </resources>
