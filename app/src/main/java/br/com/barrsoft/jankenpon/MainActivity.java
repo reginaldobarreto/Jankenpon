@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.imageViewApp)
     public void easterEgg(View view){
-        playerMusica(R.raw.teobaldo_dpa, R.raw.teobaldo_dpa);
+        playerMusica(R.raw.teobaldo_dpa, R.raw.easter);
     }
 
     private void funGame(int chooseUser) {
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     private void winner(int chooseUser, int random) {
 
         if (chooseUser == 1 && random == 1){
-            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.jankenpon);
+            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.draw);
         }
         if (chooseUser == 1 && random == 2){
             playerVictory(getString(R.string.msg_win), R.raw.jankenpon ,R.raw.youwin);
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             playerVictory(getString(R.string.msg_lose), R.raw.jankenpon ,R.raw.youlose);
         }
         if (chooseUser == 2 && random == 2){
-            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.jankenpon);
+            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.draw);
         }
         if (chooseUser == 2 && random == 3){
             playerVictory(getString(R.string.msg_win), R.raw.jankenpon ,R.raw.youwin);
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             playerVictory(getString(R.string.msg_lose),R.raw.jankenpon ,R.raw.youlose);
         }
         if (chooseUser == 3 && random == 3){
-            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.jankenpon);
+            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.draw);
         }
     }
 
