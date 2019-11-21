@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageViewRock;
     @BindView(R.id.imageViewScissor)
     ImageView imageViewScissor;
-    int chooseUser = 0;
     private MediaPlayer player = new MediaPlayer();
+    private MediaPlayer player1 = new MediaPlayer();
+
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +35,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-
     }
 
-    private void playerMusica(int musica) {
+    private void playerMusica(int firstMusic, int secondMusic) {
 
         player.release();
+        player1.release();
         if(player != null){
-            player = MediaPlayer.create(this, musica);
+            player = MediaPlayer.create(this, firstMusic);
+            player1 = MediaPlayer.create(this,secondMusic);
+            player.setNextMediaPlayer(player1);
             player.start();
         }
     }
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.imageViewApp)
     public void easterEgg(View view){
-        playerMusica(R.raw.teobaldo_dpa);
+        playerMusica(R.raw.teobaldo_dpa, R.raw.teobaldo_dpa);
     }
 
     private void funGame(int chooseUser) {
@@ -77,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         int min = 1;
         int random = (int) (Math.random() * (max - min + 1) + min);
         setImage(random);
-        playerMusica(R.raw.jankenpon);
         winner(chooseUser, random);
 
     }
@@ -102,36 +104,36 @@ public class MainActivity extends AppCompatActivity {
     private void winner(int chooseUser, int random) {
 
         if (chooseUser == 1 && random == 1){
-            Toast.makeText(getApplicationContext(), R.string.msg_empate,Toast.LENGTH_SHORT).show();
+            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.jankenpon);
         }
         if (chooseUser == 1 && random == 2){
-            Toast.makeText(getApplicationContext(), R.string.msg_vitoria,Toast.LENGTH_SHORT).show();
+            playerVictory(getString(R.string.msg_win), R.raw.jankenpon ,R.raw.youwin);
         }
         if (chooseUser == 1 && random == 3){
-            playerVictory(getString(R.string.msg_lose), R.raw.youlose);
+            playerVictory(getString(R.string.msg_lose), R.raw.jankenpon ,R.raw.youlose);
         }
         if (chooseUser == 2 && random == 1){
-            playerVictory(getString(R.string.msg_lose), R.raw.youlose);
+            playerVictory(getString(R.string.msg_lose), R.raw.jankenpon ,R.raw.youlose);
         }
         if (chooseUser == 2 && random == 2){
-            Toast.makeText(getApplicationContext(), R.string.msg_empate,Toast.LENGTH_SHORT).show();
+            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.jankenpon);
         }
         if (chooseUser == 2 && random == 3){
-            playerVictory(getString(R.string.msg_win), R.raw.youwin);
+            playerVictory(getString(R.string.msg_win), R.raw.jankenpon ,R.raw.youwin);
         }
         if (chooseUser == 3 && random == 1){
-            playerVictory(getString(R.string.msg_win), R.raw.youwin);
+            playerVictory(getString(R.string.msg_win), R.raw.jankenpon ,R.raw.youwin);
         }
         if (chooseUser == 3 && random == 2){
-            playerVictory(getString(R.string.msg_lose), R.raw.youlose);
+            playerVictory(getString(R.string.msg_lose),R.raw.jankenpon ,R.raw.youlose);
         }
         if (chooseUser == 3 && random == 3){
-            Toast.makeText(getApplicationContext(), R.string.msg_empate,Toast.LENGTH_SHORT).show();
+            playerVictory(getString(R.string.msg_empate), R.raw.jankenpon ,R.raw.jankenpon);
         }
     }
 
-    private void playerVictory(String message, int musica) {
-            playerMusica(musica);
+    private void playerVictory(String message, int firstMusic, int secondMusic) {
+            playerMusica(firstMusic,secondMusic);
             Toast.makeText(getApplicationContext(), message,Toast.LENGTH_SHORT).show();
     }
 
